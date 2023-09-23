@@ -45,6 +45,20 @@ app.get('/pokemons', (req, res) => {
   return res.json([pokemons])
 });
 
+var series = ['The Last of Us', 'YOU', 'Suits'];
+
+app.post('/series/', (req, res) => {
+  let name = req.body.name;
+  series[(series.length)] = name;
+  return res.json([series[(series.length - 1)]]);
+});
+
+app.get('/series', (req, res) => {
+  let id = req.params.id;
+  return res.json([series])
+});
+
+
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 
